@@ -1,0 +1,62 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java-library'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.5.1'
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+	maven {
+		url = 'https://repo.papermc.io/repository/maven-public/'
+	}
+}
+
+dependencies {
+	compileOnly 'io.papermc.paper:paper-api:1.19.1-R0.1-SNAPSHOT'
+}
+
+group = 'ru.izerus'
+version = '0.0.1'
+description = 'Plugin template'
+
+/* Doc: https://github.com/Minecrell/plugin-yml */
+bukkit {
+    website = 'https://github.com/iZerus'
+    author = 'iZerus'
+	
+    main = 'ru.izerus.plugintemplate.PluginTemplate'
+    apiVersion = '1.19'
+    
+    load = 'STARTUP'
+    authors = ['iZerus']
+    prefix = 'PluginTemplate'
+    defaultPermission = 'OP'
+    
+    commands {
+        plugintemplate {
+            description = 'Plugin template command'
+            aliases = ['pt']
+            permission = 'plugintemplate.cmd.plugintemplate'
+        }
+    }
+    
+    permissions {
+        'plugintemplate.cmd.plugintemplate' {
+            description = 'Allows the use of the command: /plugintemplate'
+        }
+    }
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    filter ReplaceTokens, tokens: [
+    	"project.name" : project.name,
+    	"project.version" : project.version,
+    ]
+}
