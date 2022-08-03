@@ -23,34 +23,19 @@ dependencies {
 
 group = 'ru.izerus'
 version = '0.0.1'
-description = 'Plugin template'
+description = 'Adds new geology mechanics'
 
 /* Doc: https://github.com/Minecrell/plugin-yml */
 bukkit {
     website = 'https://github.com/iZerus'
     author = 'iZerus'
 	
-    main = 'ru.izerus.plugintemplate.PluginTemplate'
+    main = 'ru.izerus.sibgeology.SibGeology'
     apiVersion = '1.19'
     
     load = 'STARTUP'
     authors = ['iZerus']
-    prefix = 'PluginTemplate'
-    defaultPermission = 'OP'
-    
-    commands {
-        plugintemplate {
-            description = 'Plugin template command'
-            aliases = ['pt']
-            permission = 'plugintemplate.cmd.plugintemplate'
-        }
-    }
-    
-    permissions {
-        'plugintemplate.cmd.plugintemplate' {
-            description = 'Allows the use of the command: /plugintemplate'
-        }
-    }
+    prefix = 'SG'
 }
 
 processResources {

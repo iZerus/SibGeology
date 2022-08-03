@@ -1,4 +1,2 @@
 # Main config for @project.name@ @project.version@
-
-# Main message
-message: 'Hello World'
+enabled: true
