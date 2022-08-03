@@ -36,6 +36,20 @@ bukkit {
     load = 'STARTUP'
     authors = ['iZerus']
     prefix = 'SG'
+    defaultPermission = 'OP'
+    
+    commands {
+        sibgeology {
+            description = 'Reload config command'
+            permission = 'sibgeology.cmd.sibgeology'
+        }
+    }
+    
+    permissions {
+        'sibgeology.cmd.sibgeology' {
+            description = 'Allows the use of the command: /sibgeology'
+        }
+    }
 }
 
 processResources {
