@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ru.izerus.sibgeology.config.Config;
+import ru.izerus.sibgeology.geology.Geology;
 
 public class SibGeology extends JavaPlugin {
 
@@ -34,6 +35,7 @@ public class SibGeology extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		config = new Config(this);
+		getServer().getPluginManager().registerEvents(new Geology(), this);
 	}
 
 }

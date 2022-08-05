@@ -36,16 +36,13 @@ public class Config {
 
 	public void save() {
 		FileConfiguration file = plugin.getConfig();
-
 		file.set(Fields.enabled, enabled);
-
 		String path = plugin.getDataFolder() + "/config.yml";
 		try {
 			file.save(path);
 		} catch (IOException e) {
-			this.plugin.getLogger().log(Level.WARNING, "Failed to save config", e);
+			plugin.getLogger().log(Level.WARNING, "Failed to save config", e);
 		}
-
 		load();
 	}
 
