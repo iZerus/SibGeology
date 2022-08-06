@@ -11,37 +11,84 @@ public class Config {
 
 	public static final class Fields {
 		public static final String enabled = "enabled";
+		public static final String woodenPickaxeRadius = "woodenPickaxeRadius";
+		public static final String stonePickaxeRadius = "stonePickaxeRadius";
+		public static final String ironPickaxeRadius = "ironPickaxeRadius";
+		public static final String goldenPickaxeRadius = "goldenPickaxeRadius";
+		public static final String diamondPickaxeRadius = "diamondPickaxeRadius";
+		public static final String netheritePickaxeRadius = "netheritePickaxeRadius";
 	}
-
-	private final SibGeology plugin;
 
 	private boolean enabled;
+	private int woodenPickaxeRadius;
+	private int stonePickaxeRadius;
+	private int ironPickaxeRadius;
+	private int goldenPickaxeRadius;
+	private int diamondPickaxeRadius;
+	private int netheritePickaxeRadius;
 
-	public Config(SibGeology instance) {
-		plugin = instance;
-		plugin.saveDefaultConfig();
+	public Config() {
+		SibGeology.instance().saveDefaultConfig();
 		load();
+		save();
 	}
 
-	public boolean enabled() {
+	public int getDiamondPickaxeRadius() {
+		return diamondPickaxeRadius;
+	}
+
+	public int getGoldenPickaxeRadius() {
+		return goldenPickaxeRadius;
+	}
+
+	public int getIronPickaxeRadius() {
+		return ironPickaxeRadius;
+	}
+
+	public int getNetheritePickaxeRadius() {
+		return netheritePickaxeRadius;
+	}
+
+	public int getStonePickaxeRadius() {
+		return stonePickaxeRadius;
+	}
+
+	public int getWoodenPickaxeRadius() {
+		return woodenPickaxeRadius;
+	}
+
+	public boolean isEnabled() {
 		return enabled;
 	}
 
 	public void load() {
-		plugin.reloadConfig();
-		FileConfiguration file = plugin.getConfig();
+		SibGeology.instance().reloadConfig();
+		FileConfiguration file = SibGeology.instance().getConfig();
 
 		enabled = file.getBoolean(Fields.enabled);
+		woodenPickaxeRadius = file.getInt(Fields.woodenPickaxeRadius);
+		stonePickaxeRadius = file.getInt(Fields.stonePickaxeRadius);
+		ironPickaxeRadius = file.getInt(Fields.ironPickaxeRadius);
+		goldenPickaxeRadius = file.getInt(Fields.goldenPickaxeRadius);
+		diamondPickaxeRadius = file.getInt(Fields.diamondPickaxeRadius);
+		netheritePickaxeRadius = file.getInt(Fields.netheritePickaxeRadius);
 	}
 
 	public void save() {
-		FileConfiguration file = plugin.getConfig();
+		FileConfiguration file = SibGeology.instance().getConfig();
 		file.set(Fields.enabled, enabled);
-		String path = plugin.getDataFolder() + "/config.yml";
+		file.set(Fields.woodenPickaxeRadius, woodenPickaxeRadius);
+		file.set(Fields.stonePickaxeRadius, stonePickaxeRadius);
+		file.set(Fields.ironPickaxeRadius, ironPickaxeRadius);
+		file.set(Fields.goldenPickaxeRadius, goldenPickaxeRadius);
+		file.set(Fields.diamondPickaxeRadius, diamondPickaxeRadius);
+		file.set(Fields.netheritePickaxeRadius, netheritePickaxeRadius);
+
+		String path = SibGeology.instance().getDataFolder() + "/config.yml";
 		try {
 			file.save(path);
 		} catch (IOException e) {
-			plugin.getLogger().log(Level.WARNING, "Failed to save config", e);
+			SibGeology.logger().log(Level.WARNING, "Failed to save config", e);
 		}
 		load();
 	}

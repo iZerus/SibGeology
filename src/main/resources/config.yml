@@ -1,2 +1,10 @@
 # Main config for @project.name@ @project.version@
 enabled: true
+
+# Geological radius of picks
+woodenPickaxeRadius: 0
+stonePickaxeRadius: 3
+ironPickaxeRadius: 4
+goldenPickaxeRadius: 4
+diamondPickaxeRadius: 5
+netheritePickaxeRadius: 5
