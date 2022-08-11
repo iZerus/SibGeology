@@ -60,7 +60,7 @@ public class GeoAnalysis {
 			for (Map.Entry<Material, Integer> entry : oreMap.entrySet()) {
 				Material ore = entry.getKey();
 				Integer count = entry.getValue();
-				message += ore.name() + "{" + count + "} ";
+				message += SibGeology.lang().get(Lang.valueOf(ore.name())) + "{" + count + "} ";
 			}
 			return message;
 		} else {
