@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import ru.izerus.sibgeology.SibGeology;
+import ru.izerus.sibgeology.config.Lang;
 import ru.izerus.sibgeology.geology.GeoAnalysis.PickException;
 import ru.izerus.sibgeology.geology.utils.ActionBarUtils;
 
@@ -35,7 +36,7 @@ public class GeologyListener implements Listener {
 			GeoAnalysis analysis = new GeoAnalysis(item, location);
 			ActionBarUtils.send(player, analysis.getResultMessage());
 		} catch (PickException exception) {
-			ActionBarUtils.send(player, "Кирка хуйня");
+			ActionBarUtils.send(player, SibGeology.lang().get(Lang.WEAK_PICKAXE));
 		}
 	}
 }

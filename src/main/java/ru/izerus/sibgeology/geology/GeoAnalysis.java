@@ -9,6 +9,9 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import ru.izerus.sibgeology.SibGeology;
+import ru.izerus.sibgeology.config.Lang;
+
 public class GeoAnalysis {
 
 	class PickException extends Exception {
@@ -61,7 +64,7 @@ public class GeoAnalysis {
 			}
 			return message;
 		} else {
-			return "Ничего не найдено";
+			return SibGeology.lang().get(Lang.ORE_NOT_FOUND);
 		}
 	}
 

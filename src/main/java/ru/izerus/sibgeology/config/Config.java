@@ -11,6 +11,7 @@ public class Config {
 
 	public static final class Fields {
 		public static final String enabled = "enabled";
+		public static final String language = "language";
 		public static final String woodenPickaxeRadius = "woodenPickaxeRadius";
 		public static final String stonePickaxeRadius = "stonePickaxeRadius";
 		public static final String ironPickaxeRadius = "ironPickaxeRadius";
@@ -20,6 +21,7 @@ public class Config {
 	}
 
 	private boolean enabled;
+	private String language;
 	private int woodenPickaxeRadius;
 	private int stonePickaxeRadius;
 	private int ironPickaxeRadius;
@@ -45,6 +47,10 @@ public class Config {
 		return ironPickaxeRadius;
 	}
 
+	public String getLanguage() {
+		return language;
+	}
+
 	public int getNetheritePickaxeRadius() {
 		return netheritePickaxeRadius;
 	}
@@ -66,6 +72,7 @@ public class Config {
 		FileConfiguration file = SibGeology.instance().getConfig();
 
 		enabled = file.getBoolean(Fields.enabled);
+		language = file.getString(Fields.language);
 		woodenPickaxeRadius = file.getInt(Fields.woodenPickaxeRadius);
 		stonePickaxeRadius = file.getInt(Fields.stonePickaxeRadius);
 		ironPickaxeRadius = file.getInt(Fields.ironPickaxeRadius);
@@ -77,6 +84,7 @@ public class Config {
 	public void save() {
 		FileConfiguration file = SibGeology.instance().getConfig();
 		file.set(Fields.enabled, enabled);
+		file.set(Fields.language, language);
 		file.set(Fields.woodenPickaxeRadius, woodenPickaxeRadius);
 		file.set(Fields.stonePickaxeRadius, stonePickaxeRadius);
 		file.set(Fields.ironPickaxeRadius, ironPickaxeRadius);

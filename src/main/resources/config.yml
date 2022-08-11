@@ -1,6 +1,10 @@
 # Main config for @project.name@ @project.version@
 enabled: true
 
+# Plugin locale
+# Currently included: en_US, ru_RU
+language: 'en_US'
+
 # Geological radius of picks
 woodenPickaxeRadius: 0
 stonePickaxeRadius: 3
