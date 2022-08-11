@@ -26,7 +26,6 @@ public class GeoAnalysis {
 	private Map<Material, Integer> oreMap;
 
 	public GeoAnalysis(ItemStack item, Location location) throws PickException {
-
 		int radius = GeoUtils.getPickaxeRadius(item.getType());
 		if (radius == 0) {
 			throw new PickException();

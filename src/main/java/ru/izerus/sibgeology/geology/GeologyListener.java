@@ -1,5 +1,6 @@
 package ru.izerus.sibgeology.geology;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import ru.izerus.sibgeology.SibGeology;
 import ru.izerus.sibgeology.config.Lang;
 import ru.izerus.sibgeology.geology.GeoAnalysis.PickException;
+import ru.izerus.sibgeology.geology.GeoUtils.PickBreakException;
 import ru.izerus.sibgeology.geology.utils.ActionBarUtils;
 
 public class GeologyListener implements Listener {
@@ -31,12 +33,20 @@ public class GeologyListener implements Listener {
 		Player player = e.getPlayer();
 		Location location = e.getInteractionPoint();
 
-		GeoUtils.playItemSound(player);
 		try {
 			GeoAnalysis analysis = new GeoAnalysis(item, location);
 			ActionBarUtils.send(player, analysis.getResultMessage());
 		} catch (PickException exception) {
 			ActionBarUtils.send(player, SibGeology.lang().get(Lang.WEAK_PICKAXE));
+		}
+
+		GeoUtils.playItemSound(player);
+		if (player.getGameMode() == GameMode.SURVIVAL && SibGeology.config().isDamagePickaxe()) {
+			try {
+				GeoUtils.addPickaxeDamage(item);
+			} catch (PickBreakException exception) {
+				GeoUtils.playItemBreakSound(player);
+			}
 		}
 	}
 }

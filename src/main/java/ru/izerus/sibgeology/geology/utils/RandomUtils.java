@@ -15,20 +15,8 @@ public class RandomUtils {
 		return min + rand.nextFloat() * (max - min);
 	}
 
-//	public static boolean isChance(float chance) {
-//		return rand.nextFloat() <= chance;
-//	}
-
-//	public static float randomFloat() {
-//		return rand.nextFloat();
-//	}
-
-//	public static int randomInt(int size) {
-//		return rand.nextInt(size);
-//	}
-
-//	public static int randomInt(int min, int max) {
-//		return rand.nextInt((max - min) + 1) + min;
-//	}
+	public static boolean isChance(float chance) {
+		return rand.nextFloat() <= chance;
+	}
 
 }

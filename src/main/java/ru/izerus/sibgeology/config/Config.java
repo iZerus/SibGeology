@@ -18,6 +18,7 @@ public class Config {
 		public static final String goldenPickaxeRadius = "goldenPickaxeRadius";
 		public static final String diamondPickaxeRadius = "diamondPickaxeRadius";
 		public static final String netheritePickaxeRadius = "netheritePickaxeRadius";
+		public static final String damagePickaxe = "damagePickaxe";
 	}
 
 	private boolean enabled;
@@ -28,6 +29,7 @@ public class Config {
 	private int goldenPickaxeRadius;
 	private int diamondPickaxeRadius;
 	private int netheritePickaxeRadius;
+	private boolean damagePickaxe;
 
 	public Config() {
 		SibGeology.instance().saveDefaultConfig();
@@ -63,6 +65,10 @@ public class Config {
 		return woodenPickaxeRadius;
 	}
 
+	public boolean isDamagePickaxe() {
+		return damagePickaxe;
+	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -79,6 +85,7 @@ public class Config {
 		goldenPickaxeRadius = file.getInt(Fields.goldenPickaxeRadius);
 		diamondPickaxeRadius = file.getInt(Fields.diamondPickaxeRadius);
 		netheritePickaxeRadius = file.getInt(Fields.netheritePickaxeRadius);
+		damagePickaxe = file.getBoolean(Fields.damagePickaxe);
 	}
 
 	public void save() {
@@ -91,6 +98,7 @@ public class Config {
 		file.set(Fields.goldenPickaxeRadius, goldenPickaxeRadius);
 		file.set(Fields.diamondPickaxeRadius, diamondPickaxeRadius);
 		file.set(Fields.netheritePickaxeRadius, netheritePickaxeRadius);
+		file.set(Fields.damagePickaxe, damagePickaxe);
 
 		String path = SibGeology.instance().getDataFolder() + "/config.yml";
 		try {

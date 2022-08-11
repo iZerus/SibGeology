@@ -12,3 +12,6 @@ ironPickaxeRadius: 4
 goldenPickaxeRadius: 4
 diamondPickaxeRadius: 5
 netheritePickaxeRadius: 5
+
+# Deal damage to the pickaxe when using
+damagePickaxe: true
