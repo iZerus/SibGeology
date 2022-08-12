@@ -124,7 +124,7 @@ public class GeoUtils {
 	}
 
 	public static void playItemSound(Player player) {
-		player.playSound(player, Sound.BLOCK_STONE_BREAK, 1.0f, RandomUtils.getInaccurateValue(4.0f, 0.05f));
+		player.playSound(player, Sound.BLOCK_STONE_BREAK, 1.0f, (float) RandomUtils.getInaccurateValue(4.0f, 0.05f));
 	}
 
 }

@@ -1,8 +1,10 @@
 package ru.izerus.sibgeology.geology;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.bukkit.Location;
@@ -11,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 import ru.izerus.sibgeology.SibGeology;
 import ru.izerus.sibgeology.config.Lang;
+import ru.izerus.sibgeology.geology.utils.RandomUtils;
 
 public class GeoAnalysis {
 
@@ -40,28 +43,39 @@ public class GeoAnalysis {
 				for (int z = loc.getBlockZ() - rad; z <= loc.getBlockZ() + rad; z++) {
 					Location location = new Location(loc.getWorld(), x, y, z);
 					Material material = location.getBlock().getType();
-					if (GeoUtils.isOreBlock(material)) {
-						int distance = (int) loc.distance(location);
-						if (map.containsKey(material)) {
-							distance = Integer.min(distance, map.get(material));
-						}
-						map.put(material, distance);
+					if (!GeoUtils.isOreBlock(material))
+						continue;
+
+					int distance = (int) loc.distance(location);
+					if (map.containsKey(material)) {
+						distance = Integer.min(distance, map.get(material));
 					}
+					map.put(material, distance);
 				}
 			}
 		}
 		return sortByValue(map);
 	}
 
+	//TODO Refactor
 	public String getResultMessage() {
+		Set<String> addedOre = new HashSet<>();
 		if (!oreMap.isEmpty()) {
 			String message = "";
 			for (Map.Entry<Material, Integer> entry : oreMap.entrySet()) {
 				Material ore = entry.getKey();
+				if (!RandomUtils.isChance(SibGeology.config().getOreChance(ore.name())))
+					continue;
+				
+				String oreName = SibGeology.lang().get(Lang.valueOf(ore.name()));
+				if (addedOre.contains(oreName))
+					continue;
+				
 				Integer count = entry.getValue();
-				message += SibGeology.lang().get(Lang.valueOf(ore.name())) + "{" + count + "} ";
+				message += oreName + "{" + count + "} ";
+				addedOre.add(oreName);
 			}
-			return message;
+			return message.equals("") ? SibGeology.lang().get(Lang.ORE_NOT_FOUND) : message;
 		} else {
 			return SibGeology.lang().get(Lang.ORE_NOT_FOUND);
 		}

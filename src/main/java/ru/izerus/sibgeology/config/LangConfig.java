@@ -39,7 +39,9 @@ public class LangConfig {
 		}
 		FileConfiguration config = YamlConfiguration.loadConfiguration(f);
 		messages.clear();
-		config.getKeys(false).forEach(message -> messages.put(Lang.valueOf(message), config.getString(message)));
+		config.getKeys(false).forEach(message -> {
+			messages.put(Lang.valueOf(message), config.getString(message));
+		});
 	}
 
 }

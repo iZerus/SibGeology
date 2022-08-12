@@ -1,6 +1,9 @@
 package ru.izerus.sibgeology.config;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Level;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,6 +22,7 @@ public class Config {
 		public static final String diamondPickaxeRadius = "diamondPickaxeRadius";
 		public static final String netheritePickaxeRadius = "netheritePickaxeRadius";
 		public static final String damagePickaxe = "damagePickaxe";
+		public static final String oreChances = "oreChances";
 	}
 
 	private boolean enabled;
@@ -30,6 +34,7 @@ public class Config {
 	private int diamondPickaxeRadius;
 	private int netheritePickaxeRadius;
 	private boolean damagePickaxe;
+	private Map<String, Double> oreChances;
 
 	public Config() {
 		SibGeology.instance().saveDefaultConfig();
@@ -55,6 +60,15 @@ public class Config {
 
 	public int getNetheritePickaxeRadius() {
 		return netheritePickaxeRadius;
+	}
+
+	public double getOreChance(String oreName) {
+		try {
+			return Objects.requireNonNull(oreChances.get(oreName));
+		} catch (NullPointerException e) {
+			SibGeology.logger().warning("The probability of " + oreName + " detection is not found");
+			return 0;
+		}
 	}
 
 	public int getStonePickaxeRadius() {
@@ -86,6 +100,10 @@ public class Config {
 		diamondPickaxeRadius = file.getInt(Fields.diamondPickaxeRadius);
 		netheritePickaxeRadius = file.getInt(Fields.netheritePickaxeRadius);
 		damagePickaxe = file.getBoolean(Fields.damagePickaxe);
+		oreChances = new HashMap<>();
+		file.getConfigurationSection(Fields.oreChances).getKeys(false).forEach(param -> {
+			oreChances.put(param, file.getDouble(Fields.oreChances + "." + param));
+		});
 	}
 
 	public void save() {
@@ -99,6 +117,7 @@ public class Config {
 		file.set(Fields.diamondPickaxeRadius, diamondPickaxeRadius);
 		file.set(Fields.netheritePickaxeRadius, netheritePickaxeRadius);
 		file.set(Fields.damagePickaxe, damagePickaxe);
+		file.set(Fields.oreChances, oreChances);
 
 		String path = SibGeology.instance().getDataFolder() + "/config.yml";
 		try {
