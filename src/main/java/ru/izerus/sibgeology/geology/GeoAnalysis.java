@@ -15,6 +15,10 @@ import ru.izerus.sibgeology.SibGeology;
 import ru.izerus.sibgeology.config.Lang;
 import ru.izerus.sibgeology.geology.utils.RandomUtils;
 
+/**
+ * @author iZerus
+ *
+ */
 public class GeoAnalysis {
 
 	class PickException extends Exception {

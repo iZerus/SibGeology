@@ -1,5 +1,9 @@
 package ru.izerus.sibgeology.config;
 
+/**
+ * @author iZerus
+ *
+ */
 public enum Lang {
 
 	RELOADED, ORE_NOT_FOUND, WEAK_PICKAXE, COAL_ORE, COPPER_ORE, DIAMOND_ORE, EMERALD_ORE, GOLD_ORE, IRON_ORE,

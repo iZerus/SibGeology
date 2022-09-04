@@ -10,6 +10,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import ru.izerus.sibgeology.SibGeology;
 
+/**
+ * @author iZerus
+ *
+ */
 public class Config {
 
 	public static final class Fields {

@@ -2,6 +2,10 @@ package ru.izerus.sibgeology.geology.utils;
 
 import org.bukkit.entity.Player;
 
+/**
+ * @author iZerus
+ *
+ */
 public class ActionBarUtils {
 
 	@SuppressWarnings("deprecation")

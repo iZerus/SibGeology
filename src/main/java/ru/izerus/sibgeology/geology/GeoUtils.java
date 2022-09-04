@@ -11,6 +11,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 import ru.izerus.sibgeology.SibGeology;
 import ru.izerus.sibgeology.geology.utils.RandomUtils;
 
+/**
+ * @author iZerus
+ *
+ */
 public class GeoUtils {
 
 	static class PickBreakException extends Exception {

@@ -15,6 +15,10 @@ import ru.izerus.sibgeology.geology.GeoAnalysis.PickException;
 import ru.izerus.sibgeology.geology.GeoUtils.PickBreakException;
 import ru.izerus.sibgeology.geology.utils.ActionBarUtils;
 
+/**
+ * @author iZerus
+ *
+ */
 public class GeologyListener implements Listener {
 
 	@EventHandler

@@ -10,6 +10,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import ru.izerus.sibgeology.SibGeology;
 
+/**
+ * @author iZerus
+ *
+ */
 public class LangConfig {
 
 	private final Map<Lang, String> messages = new EnumMap<>(Lang.class);

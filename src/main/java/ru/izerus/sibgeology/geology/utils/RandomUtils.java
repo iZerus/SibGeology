@@ -2,6 +2,10 @@ package ru.izerus.sibgeology.geology.utils;
 
 import java.util.Random;
 
+/**
+ * @author iZerus
+ *
+ */
 public class RandomUtils {
 
 	private static final Random rand = new Random(System.currentTimeMillis());

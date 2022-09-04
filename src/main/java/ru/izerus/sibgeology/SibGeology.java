@@ -11,6 +11,10 @@ import ru.izerus.sibgeology.config.Lang;
 import ru.izerus.sibgeology.config.LangConfig;
 import ru.izerus.sibgeology.geology.GeologyListener;
 
+/**
+ * @author iZerus
+ *
+ */
 public class SibGeology extends JavaPlugin {
 
 	private static SibGeology instance;
