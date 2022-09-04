@@ -57,7 +57,7 @@ public class GeoAnalysis {
 		return sortByValue(map);
 	}
 
-	//TODO Refactor
+	// TODO Refactor
 	public String getResultMessage() {
 		Set<String> addedOre = new HashSet<>();
 		if (!oreMap.isEmpty()) {
@@ -66,11 +66,11 @@ public class GeoAnalysis {
 				Material ore = entry.getKey();
 				if (!RandomUtils.isChance(SibGeology.config().getOreChance(ore.name())))
 					continue;
-				
+
 				String oreName = SibGeology.lang().get(Lang.valueOf(ore.name()));
 				if (addedOre.contains(oreName))
 					continue;
-				
+
 				Integer count = entry.getValue();
 				message += oreName + "{" + count + "} ";
 				addedOre.add(oreName);

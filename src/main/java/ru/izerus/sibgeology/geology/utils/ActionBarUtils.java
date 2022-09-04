@@ -6,7 +6,7 @@ public class ActionBarUtils {
 
 	@SuppressWarnings("deprecation")
 	public static void send(Player player, String message) {
-		// FIXME deprecated method
+		// XXX deprecated method
 		player.sendActionBar(message);
 	}
 
