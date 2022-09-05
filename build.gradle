@@ -22,7 +22,7 @@ dependencies {
 }
 
 group = 'ru.izerus'
-version = '0.0.1'
+version = '1.0.0'
 description = 'Adds new geology mechanics'
 
 /* Doc: https://github.com/Minecrell/plugin-yml */
