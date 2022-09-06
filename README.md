@@ -12,3 +12,5 @@ This plugin helps to increase the interval between server wipes.
 * `./gradlew build`
 
 Built jar will be in `./build/libs/`
+
+Spigot page: [SibGeology](https://www.spigotmc.org/resources/sibgeology.105092/)
